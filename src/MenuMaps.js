@@ -27,18 +27,17 @@ export default class MenuMaps extends Component {
 					title={
 						<span>
 							<Icon type="mail" />
-							<span>Toulouse</span>
+							<span>Recensement</span>
 						</span>
 					}
 				>
 					<Menu.ItemGroup key="g1" title="Item 1">
 						<Menu.Item key="1"><Link to='/toulouse-population'>Population</Link></Menu.Item>
-						<Menu.Item key="2">Option 2</Menu.Item>
+						<Menu.Item key="2">Logement</Menu.Item>
+						<Menu.Item key="3">Activité</Menu.Item>
+
 					</Menu.ItemGroup>
-					<Menu.ItemGroup key="g2" title="Item 2">
-						<Menu.Item key="3">Option 3</Menu.Item>
-						<Menu.Item key="4">Option 4</Menu.Item>
-					</Menu.ItemGroup>
+
 				</SubMenu>
 				<SubMenu
 					key="sub2"

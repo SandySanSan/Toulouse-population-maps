@@ -1,6 +1,8 @@
-export const styleMenu = {
-	position: 'absolute',
-	top: '50px',
-	left: 0,
-	zIndex: 1000
+export const styleToolTip = {
+	backgroundColor: 'white',
+	width: '250px',
+	padding: '15px',
+	borderRadius: '4px',
+	position: 'absolute'
+
 }
