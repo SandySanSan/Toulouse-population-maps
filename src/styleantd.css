@@ -1,0 +1,19 @@
+.ant-layout-footer {
+  background: #4b5056;
+}
+
+.ant-layout-header {
+  background: #0c0000;
+}
+
+.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub {
+  background: #212121;
+}
+
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background: #3e3e3e;
+}
+.ant-layout-footer {
+  padding: 15px 50px;
+}

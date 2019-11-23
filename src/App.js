@@ -5,19 +5,21 @@ import {
   Route,
 } from 'react-router-dom';
 import MenuMaps from './MenuMaps';
-import Population2012 from './recensement-population/Population2012';
-import { Row, Layout } from 'antd';
-import "antd/dist/antd.css";
+import PopulationToulouse from './recensement-population/PopulationToulouse';
+import { Row, Layout, Typography } from 'antd';
+import { styleTitle } from './style'
 
 
+const { Title } = Typography;
 const { Header, Footer, Sider, Content } = Layout;
+
 
 export default function App() {
   return (
     <Fragment>
       <Router>
         <Layout style={{ 'height': '100vh' }}>
-          <Header>Header</Header>
+          <Header><Title level={3} style={styleTitle}>DATA TOLOSA</Title></Header>
           <Layout>
             <Sider>
               <MenuMaps />
@@ -25,7 +27,7 @@ export default function App() {
             <Content>
               <Row>
                 <Switch>
-                  <Route path="/toulouse-population" component={Population2012} />
+                  <Route path="/toulouse-population" component={PopulationToulouse} />
                 </Switch>
               </Row>
             </Content>
