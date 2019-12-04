@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import MenuMaps from './MenuMaps';
 import PopulationToulouse from './recensement-population/PopulationToulouse';
+import Poi from './poi/Poi'
 import { Row, Layout, Typography } from 'antd';
 import { styleTitle } from './style'
 
@@ -28,6 +29,7 @@ export default function App() {
               <Row>
                 <Switch>
                   <Route path="/toulouse-population" component={PopulationToulouse} />
+                  <Route path="/toulouse-poi" component={Poi} />
                 </Switch>
               </Row>
             </Content>

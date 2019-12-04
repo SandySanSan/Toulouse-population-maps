@@ -13,45 +13,6 @@
     "categorie": "Distributeur poches pour déjections canines"
   },
   {
-    "nom": "Caniparc ~1 Avenue Du Petit Prince",
-    "descriptif": "Jardin Saint-Exupery",
-    "adresse": "~1 Avenue Du Petit Prince",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.46932592004001,
-        43.58379714220064
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc ~27 Rue Marvig",
-    "descriptif": "Jardin Des Oiseaux",
-    "adresse": "~27 Rue Marvig",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.462599889678055,
-        43.580104259773556
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Piscine Pech David",
-    "descriptif": "Piscine ouverte toute l'année",
-    "adresse": "Chemin des côtes de Pech David 31400 TOULOUSE",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.4467962350136099,
-        43.5655999649497
-      ]
-    },
-    "categorie": "Sport : Piscine"
-  },
-  {
     "nom": "Distributeur poches pour déjections canines 9 Rue Isaac Newton",
     "descriptif": "Poches",
     "adresse": "9 Rue Isaac Newton",
@@ -427,45 +388,6 @@
       ]
     },
     "categorie": "Borne wifi"
-  },
-  {
-    "nom": "Caniparc ~168 Rue De Periole",
-    "descriptif": "Jardin Pierre Rous",
-    "adresse": "~168 Rue De Periole",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.464791218841624,
-        43.618674842890684
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc Rue Debat Ponsan",
-    "descriptif": "Coulee Verte Amidonniers",
-    "adresse": "Rue Debat Ponsan",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.420684548538969,
-        43.60630615515469
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc ~33 Chemin Lapujade",
-    "descriptif": "Jardin Lapujade",
-    "adresse": "~33 Chemin Lapujade",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.45198260153994,
-        43.61897668563072
-      ]
-    },
-    "categorie": "Caniparc"
   },
   {
     "nom": "Distributeur poches pour déjections canines 1 Allée Firmin Bouisset",
@@ -1521,19 +1443,6 @@
     "categorie": "Borne wifi"
   },
   {
-    "nom": "Caniparc Rue Larousse",
-    "descriptif": "Jardin Larousse",
-    "adresse": "Rue Larousse",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.459110626535022,
-        43.596686507764176
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
     "nom": "Distributeur poches pour déjections canines 26B Rue du Cimetière Saint Cyprien",
     "descriptif": "Poches",
     "adresse": "26B Rue du Cimetière Saint Cyprien",
@@ -1989,32 +1898,6 @@
     "categorie": "Distributeur poches pour déjections canines"
   },
   {
-    "nom": "Caniparc ~26 Rue Cervantes",
-    "descriptif": "Jardin Cervantes",
-    "adresse": "~26 Rue Cervantes",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.4270017562363742,
-        43.632187650430765
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Piscine Nakache",
-    "descriptif": "Piscine ouverte de septembre à juin",
-    "adresse": "7 allée Gabriel Biénès 31400 TOULOUSE",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.435238370445339,
-        43.58527313276555
-      ]
-    },
-    "categorie": "Sport : Piscine"
-  },
-  {
     "nom": "Distributeur poches pour déjections canines 1 Rue du Président J.-F. Kennedy",
     "descriptif": "Poches",
     "adresse": "1 Rue du Président J.-F. Kennedy",
@@ -2247,32 +2130,6 @@
       ]
     },
     "categorie": "Borne wifi"
-  },
-  {
-    "nom": "Caniparc Avenue Camille Flammarion",
-    "descriptif": "Jardin De L'observatoire",
-    "adresse": "Avenue Camille Flammarion",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.462638296203578,
-        43.6122050184063
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc Rue Laulanie",
-    "descriptif": "Residence Lou Bosc",
-    "adresse": "Rue Laulanie",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.400560755978105,
-        43.580869618781826
-      ]
-    },
-    "categorie": "Caniparc"
   },
   {
     "nom": "Borne Wifi Les jardins du Muséum 1",
@@ -2521,32 +2378,6 @@
     "categorie": "Distributeur poches pour déjections canines"
   },
   {
-    "nom": "Piscine Bellevue",
-    "descriptif": "Piscine ouverte toute l'année",
-    "adresse": "86 chemin de la Salade Ponsan 31400 TOULOUSE",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.4530204577176251,
-        43.567564939528886
-      ]
-    },
-    "categorie": "Sport : Piscine"
-  },
-  {
-    "nom": "Piscine Papus",
-    "descriptif": "Piscine ouverte toute l'année",
-    "adresse": "64 allée de Guyenne 31100 TOULOUSE",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.417349236714213,
-        43.57462436296377
-      ]
-    },
-    "categorie": "Sport : Piscine"
-  },
-  {
     "nom": "La Grande Plaine",
     "descriptif": "Skatepark La Grande Plaine",
     "shape": {
@@ -2596,19 +2427,6 @@
       ]
     },
     "categorie": "Borne wifi"
-  },
-  {
-    "nom": "Caniparc Place Saint Aubin",
-    "descriptif": "Saint-Aubin",
-    "adresse": "Place Saint Aubin",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.455609503246549,
-        43.603432944187716
-      ]
-    },
-    "categorie": "Caniparc"
   },
   {
     "nom": "ARNAUD BERNARD",
@@ -3053,19 +2871,6 @@
     "categorie": "Borne wifi"
   },
   {
-    "nom": "Caniparc Boulevard Bonrepos",
-    "descriptif": "Canal Av. De Lyon",
-    "adresse": "Boulevard Bonrepos",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.450842610697738,
-        43.6136969015462
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
     "nom": "BROCANTE SAINT AUBIN",
     "descriptif": "Marché",
     "adresse": "Bvd Michelet",
@@ -3480,19 +3285,6 @@
     "categorie": "Distributeur poches pour déjections canines"
   },
   {
-    "nom": "Piscine Leo Lagrange",
-    "descriptif": "Piscine ouverte de septembre à juin",
-    "adresse": "4 place Pierre-Paul Riquet 31000 TOULOUSE",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.454268112861643,
-        43.60734100162633
-      ]
-    },
-    "categorie": "Sport : Piscine"
-  },
-  {
     "nom": "Borne Wifi Pradettes",
     "descriptif": "Toulouse_wifi",
     "adresse": "Place Des Pradettes",
@@ -3675,19 +3467,6 @@
     "categorie": "Distributeur poches pour déjections canines"
   },
   {
-    "nom": "Pisicne Alex Jany",
-    "descriptif": "Piscine ouverte toute l'année",
-    "adresse": "chemin du Verdon 31500 Toulouse",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.478253062556301,
-        43.6236875613926
-      ]
-    },
-    "categorie": "Sport : Piscine"
-  },
-  {
     "nom": "Pech David",
     "descriptif": "Skatepark Pech David",
     "shape": {
@@ -3724,45 +3503,6 @@
       ]
     },
     "categorie": "Borne wifi"
-  },
-  {
-    "nom": "Caniparc Abords Ecole Courrege",
-    "descriptif": "Abords Ecole Courrege",
-    "adresse": "Abords Ecole Courrege",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.477546334457028,
-        43.58323205099323
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc Rue De Biarritz",
-    "descriptif": "Avenue De Biarritz",
-    "adresse": "Rue De Biarritz",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.41054129505763,
-        43.60795367765543
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc ~16 Rue Ponchon",
-    "descriptif": "Jardin Les Hauts De Bonnefoy",
-    "adresse": "~16 Rue Ponchon",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.457421094985211,
-        43.62321794383406
-      ]
-    },
-    "categorie": "Caniparc"
   },
   {
     "nom": "Distributeur poches pour déjections canines 28 Boulevard Bernard Griffoul Dorval",
@@ -4103,45 +3843,6 @@
     "categorie": "Distributeur poches pour déjections canines"
   },
   {
-    "nom": "Piscine Alban Minville",
-    "descriptif": "Piscine ouverte toute l'année",
-    "adresse": "63 allée de Bellefontaine 31100 TOULOUSE",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.3998902977140721,
-        43.56566136075282
-      ]
-    },
-    "categorie": "Sport : Piscine"
-  },
-  {
-    "nom": "Piscine Toulouse Lautrec",
-    "descriptif": "Piscine ouverte toute l'année",
-    "adresse": "26 impasse Barthe 31200 TOULOUSE",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.439086713466657,
-        43.6281131786948
-      ]
-    },
-    "categorie": "Sport : Piscine"
-  },
-  {
-    "nom": "Piscine Municipale Chapou",
-    "descriptif": "Piscine d'été",
-    "adresse": "rue Saunière 31000 TOULOUSE",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.419433603502873,
-        43.608748344963736
-      ]
-    },
-    "categorie": "Sport : Piscine"
-  },
-  {
     "nom": "Distributeur poches pour déjections canines 1 Rue de l'Église",
     "descriptif": "Poches",
     "adresse": "1 Rue de l'Église",
@@ -4324,19 +4025,6 @@
     "categorie": "Borne wifi"
   },
   {
-    "nom": "Caniparc Rue Edouard Pailleron",
-    "descriptif": "Parc De La Maourine",
-    "adresse": "Rue Edouard Pailleron",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.449931357612958,
-        43.62925073074953
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
     "nom": "Sanisette",
     "descriptif": "Sanitaire tous publics; PMR : Oui",
     "adresse": "16 Place Dominique Martin Dupuy Toulouse",
@@ -4504,32 +4192,6 @@
       ]
     },
     "categorie": "Borne wifi"
-  },
-  {
-    "nom": "Caniparc Allee De Limayrac",
-    "descriptif": "Bois De Limayrac",
-    "adresse": "Allee De Limayrac",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.4840675562736831,
-        43.5898512792063
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc Rue Edouard Pailleron",
-    "descriptif": "Parc De La Maourine",
-    "adresse": "Rue Edouard Pailleron",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.453898265673619,
-        43.63149375912135
-      ]
-    },
-    "categorie": "Caniparc"
   },
   {
     "nom": "Distributeur poches pour déjections canines 0092 Avenue Jules Julien",
@@ -5389,19 +5051,6 @@
     "categorie": "Distributeur poches pour déjections canines"
   },
   {
-    "nom": "Piscine Ete Parc Des Sports",
-    "descriptif": "Piscine d'été",
-    "adresse": "7 allée Gabriel Biénès 31400 TOULOUSE",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.435443464148367,
-        43.58580123848599
-      ]
-    },
-    "categorie": "Sport : Piscine"
-  },
-  {
     "nom": "Borne Wifi Saint Aubin",
     "descriptif": "Toulouse_wifi",
     "adresse": "1 Bis Boulevard J, Michelet",
@@ -5621,32 +5270,6 @@
       ]
     },
     "categorie": "Borne wifi"
-  },
-  {
-    "nom": "Caniparc Rue Edouard Pailleron",
-    "descriptif": "Parc De La Maourine",
-    "adresse": "Rue Edouard Pailleron",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.455217693208367,
-        43.63494131269595
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc ~30 Rue Ozenne",
-    "descriptif": "Jardin Royal",
-    "adresse": "~30 Rue Ozenne",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.448743087730113,
-        43.59510134170041
-      ]
-    },
-    "categorie": "Caniparc"
   },
   {
     "nom": "Distributeur poches pour déjections canines 0 MONTAUDRAN (CHE DE L EGLISE MONTAUDRAN)",
@@ -6052,19 +5675,6 @@
     "categorie": "Distributeur poches pour déjections canines"
   },
   {
-    "nom": "Caniparc ~30 Rue Ozenne",
-    "descriptif": "Jardin Royal",
-    "adresse": "~30 Rue Ozenne",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.45061710206918,
-        43.59636774911801
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
     "nom": "Distributeur poches pour déjections canines 1 Cheminement de la Sarriette",
     "descriptif": "Poches",
     "adresse": "1 Cheminement de la Sarriette",
@@ -6260,32 +5870,6 @@
     "categorie": "Borne wifi"
   },
   {
-    "nom": "Caniparc Rue Henri Docquiert",
-    "descriptif": "Jardin Ponts Jumeaux",
-    "adresse": "Rue Henri Docquiert",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.422633641839123,
-        43.61430060525277
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc Place De La Daurade",
-    "descriptif": "Port De La Daurade",
-    "adresse": "Place De La Daurade",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.438786766774974,
-        43.601619237675344
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
     "nom": "Borne Wifi Hotel de Ville - Capitol",
     "descriptif": "MairieToulousePublic",
     "adresse": "Place Du Capitole",
@@ -6466,19 +6050,6 @@
       ]
     },
     "categorie": "Distributeur poches pour déjections canines"
-  },
-  {
-    "nom": "Piscine Ete Bellevue",
-    "descriptif": "Piscine d'été",
-    "adresse": "86 chemin de la Salade Ponsan 31400 TOULOUSE",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.453773104862143,
-        43.568051780396914
-      ]
-    },
-    "categorie": "Sport : Piscine"
   },
   {
     "nom": "Ernest Renan",
@@ -7143,32 +6714,6 @@
     "categorie": "Borne wifi"
   },
   {
-    "nom": "Caniparc Cours Dillon",
-    "descriptif": "Jardin De La Prairie Des Filtres",
-    "adresse": "Cours Dillon",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.435521469600683,
-        43.59290405637146
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc Rue Moiroud",
-    "descriptif": "Rue Moiroud",
-    "adresse": "Rue Moiroud",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.456882348056937,
-        43.61033862200165
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
     "nom": "Sanisette",
     "descriptif": "Sanitaire standard; PMR : Non",
     "adresse": "1 Avenue du Cimetière Toulouse",
@@ -7597,45 +7142,6 @@
     "categorie": "Borne wifi"
   },
   {
-    "nom": "Caniparc Rue D'embarthe",
-    "descriptif": "Jardin D'embarthe",
-    "adresse": "Rue D'embarthe",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.4376625768309261,
-        43.60954500120862
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc ~30 Rue Noulet",
-    "descriptif": "Parc De La Boisseraie",
-    "adresse": "~30 Rue Noulet",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.464248310738979,
-        43.589427365052224
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc Rue Saint Laurent",
-    "descriptif": "Jardin Michelet",
-    "adresse": "Rue Saint Laurent",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.4544709529347881,
-        43.61573668339678
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
     "nom": "Distributeur poches pour déjections canines 34 Boulevard de l'Embouchure",
     "descriptif": "Pelles",
     "adresse": "34 Boulevard de l'Embouchure",
@@ -7764,19 +7270,6 @@
       ]
     },
     "categorie": "Distributeur poches pour déjections canines"
-  },
-  {
-    "nom": "Piscine Sportive Castex",
-    "descriptif": "Piscine ouverte toute l'année",
-    "adresse": "7 allée Gabriel Biénès 31400 TOULOUSE",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.434369209968135,
-        43.58610918782052
-      ]
-    },
-    "categorie": "Sport : Piscine"
   },
   {
     "nom": "Distributeur poches pour déjections canines  Parc des Ramiers",
@@ -8195,19 +7688,6 @@
     "categorie": "Borne wifi"
   },
   {
-    "nom": "Caniparc Rue  Du Soleil D'or",
-    "descriptif": "Jardin Du Soleil D'or",
-    "adresse": "Rue  Du Soleil D'or",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.407179079772995,
-        43.614911500133424
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
     "nom": "Borne Wifi Espace diversités et laï",
     "descriptif": "MairieToulousePublic",
     "adresse": "38, Rue D'aubuisson",
@@ -8426,71 +7906,6 @@
       ]
     },
     "categorie": "Sport : Skatepark"
-  },
-  {
-    "nom": "Caniparc Rue D'auch",
-    "descriptif": "Parc Fontaine Lestang",
-    "adresse": "Rue D'auch",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.421090267521272,
-        43.5835381036821
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc Rue D'embarthe",
-    "descriptif": "Jardin D'embarthe",
-    "adresse": "Rue D'embarthe",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.437680465112127,
-        43.60912745913187
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc ~82 Rue Aristide Maillol",
-    "descriptif": "Residence Les Pradettes",
-    "adresse": "~82 Rue Aristide Maillol",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.396117382021113,
-        43.578752622598856
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc Rue Henry Gorsse",
-    "descriptif": "Jardin De La Dalbade",
-    "adresse": "Rue Henry Gorsse",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.44269113070202,
-        43.59788453305787
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc Rue Reille",
-    "descriptif": "Jardin Gaspard",
-    "adresse": "Rue Reille",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.459527587617278,
-        43.60934512986153
-      ]
-    },
-    "categorie": "Caniparc"
   },
   {
     "nom": "Distributeur poches pour déjections canines 1 Rue Paulette Pastor",
@@ -8844,45 +8259,6 @@
     "categorie": "Borne wifi"
   },
   {
-    "nom": "Caniparc Plaine De Jeux Terrasse",
-    "descriptif": "Plaine De Jeux Terrasse",
-    "adresse": "Plaine De Jeux Terrasse",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.484820745524031,
-        43.58321425830209
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc Rue Des Casernes",
-    "descriptif": "Jardin Niel",
-    "adresse": "Rue Des Casernes",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.444382926477411,
-        43.577810857649936
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc ~9 Boulevard Lascrosses",
-    "descriptif": "Jardin Compans",
-    "adresse": "~9 Boulevard Lascrosses",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.4326475376372652,
-        43.61034676556771
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
     "nom": "Distributeur poches pour déjections canines 69T 0069T RTE DE NARBONNE",
     "descriptif": "Pelles",
     "adresse": "69T 0069T RTE DE NARBONNE",
@@ -9130,19 +8506,6 @@
     "categorie": "Borne wifi"
   },
   {
-    "nom": "Caniparc Place Sainte-Germaine",
-    "descriptif": "Square Sainte-Germaine",
-    "adresse": "Place Sainte-Germaine",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.449152940806167,
-        43.58056448710032
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
     "nom": "Borne Wifi Saint-Pierre 1",
     "descriptif": "Toulouse_wifi",
     "adresse": "Pl Saint Pierre",
@@ -9297,19 +8660,6 @@
       ]
     },
     "categorie": "Distributeur poches pour déjections canines"
-  },
-  {
-    "nom": "Piscine Jean Boiteux",
-    "descriptif": "Piscine ouverte toute l'année",
-    "adresse": "105 route de Blagnac",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.4073578410722312,
-        43.616149261120505
-      ]
-    },
-    "categorie": "Sport : Piscine"
   },
   {
     "nom": "Patinoire Bellevue",
@@ -9817,32 +9167,6 @@
       ]
     },
     "categorie": "Borne wifi"
-  },
-  {
-    "nom": "Caniparc Impasse Du Seminaire",
-    "descriptif": "Jardin  Du Seminaire",
-    "adresse": "Impasse Du Seminaire",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.434114764731719,
-        43.64181852806216
-      ]
-    },
-    "categorie": "Caniparc"
-  },
-  {
-    "nom": "Caniparc ~4 Rue Des Gallois",
-    "descriptif": "Jardin Du Pays D'oc",
-    "adresse": "~4 Rue Des Gallois",
-    "shape": {
-      "type": "Point",
-      "coordinates": [
-        1.441531958398712,
-        43.5886203608643
-      ]
-    },
-    "categorie": "Caniparc"
   },
   {
     "nom": "Distributeur poches pour déjections canines 26 Rue de la Caravelle",
