@@ -8,7 +8,12 @@ import atlas from '../images/atlas.png'
 
 const ICON_MAPPING = {
 	dogBrown: { x: 0, y: 0, width: 95, height: 96, mask: false },
-	dogGreen: { x: 96, y: 0, width: 95, height: 96, mask: false }
+	dogGreen: { x: 96, y: 0, width: 95, height: 96, mask: false },
+	pool: { x: 186, y: 0, width: 95, height: 96, mask: false },
+	skate: { x: 278, y: 0, width: 95, height: 96, mask: false },
+	heart: { x: 372, y: 0, width: 95, height: 96, mask: false },
+	shop: { x: 465, y: 0, width: 95, height: 96, mask: false },
+	toilets: { x: 557, y: 0, width: 95, height: 96, mask: false },
 
 };
 
@@ -27,12 +32,29 @@ class Poi extends Component {
 				id: 'icon-layer',
 				data: poiData,
 				pickable: true,
-				// iconAtlas and iconMapping are required
-				// getIcon: return a string
 				iconAtlas: atlas,
 				iconMapping: ICON_MAPPING,
-				getIcon: d => 'dogGreen',
+				getIcon: d => {
+					if (d.categorie.includes('Distributeur')) {
+						return 'dogBrown'
+					}
+					if (d.categorie.includes('Caniparc')) {
+						return 'dogGreen'
+					}
+					if (d.categorie.includes('Piscine')) {
+						return 'pool'
+					}
 
+					if (d.categorie.includes('Skate')) {
+						return 'skate'
+					}
+					if (d.categorie.includes('Marché')) {
+						return 'shop'
+					}
+					if (d.categorie.includes('Sanisette')) {
+						return 'toilets'
+					}
+				},
 				sizeScale: 10,
 				getPosition: d => d.shape.coordinates,
 				getSize: d => 5,
