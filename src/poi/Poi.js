@@ -23,8 +23,18 @@ class Poi extends Component {
 			width: '100%',
 			height: window.innerHeight - 115
 		},
-		categories: []
+		categories: [],
+		x: 0,
+		y: 0,
+		hoveredObject: null,
+		expandedObjects: null
 	}
+
+
+	componentDidMount() {
+		this.processCategory()
+	}
+
 
 	_renderLayers() {
 		return [
@@ -44,7 +54,6 @@ class Poi extends Component {
 					if (d.categorie.includes('Piscine')) {
 						return 'pool'
 					}
-
 					if (d.categorie.includes('Skate')) {
 						return 'skate'
 					}
@@ -58,6 +67,12 @@ class Poi extends Component {
 				sizeScale: 10,
 				getPosition: d => d.shape.coordinates,
 				getSize: d => 5,
+				anchorY: 'bottom',
+				onHover: info => this.setState({
+					hoveredObject: info.object,
+					pointerX: info.x,
+					pointerY: info.y
+				})
 				// getColor: d => [Math.sqrt(d.exits), 140, 0],
 				// onHover: ({object, x, y}) => {
 				//   const tooltip = `${object.name}\n${object.address}`;
@@ -69,11 +84,68 @@ class Poi extends Component {
 		]
 	}
 
-	componentDidMount() {
-		this.processCategory()
+	_onHover = (info) => {
+		if (this.state.expandedObjects) {
+			return;
+		}
+
+		const { x, y, object } = info;
+		this.setState({ x, y, hoveredObject: object });
+	}
+
+	_onClick = (info) => {
+		const { x, y, object } = info;
+
+		if (object) {
+			this.setState({ x, y, expandedObjects: [object] });
+		} else {
+			this._closePopup();
+		}
+	}
+	_closePopup = () => {
+		if (this.state.expandedObjects) {
+			this.setState({ expandedObjects: null, hoveredObject: null });
+		}
+	}
+
+	_renderhoveredItems = () => {
+		const { x, y, hoveredObject, expandedObjects } = this.state;
+
+		if (expandedObjects) {
+			return (
+				<div className="tooltip interactive"
+					style={{
+						left: x, top: y, backgroundColor: 'white',
+						position: 'absolute', zIndex: 9999, padding: '20px', borderRadius: '5px', width: '300px'
+					}}>
+					{expandedObjects.map(({ nom, descriptif, adresse, categorie, shape }) => {
+						return (
+							<div key={nom}>
+								<h5>{descriptif}</h5>
+								<div>Adresse: {adresse}</div>
+								<div>Catégorie: {categorie}</div>
+							</div>
+						);
+					})}
+				</div>
+			);
+		}
+
+		if (!hoveredObject) {
+			return null;
+		}
+
+		return (
+			<div className="tooltip" style={{ left: x, top: y }}>
+				<h5>
+					{hoveredObject.name} {hoveredObject.year ? `(${hoveredObject.year})` : ''}
+				</h5>
+			</div>
+		);
 	}
 
 
+	// tableau des catégories
 	processCategory = () => {
 		const categories = []
 		poiData
@@ -94,12 +166,15 @@ class Poi extends Component {
 					controller
 					{...viewport}
 					onViewportChange={this._onViewportChange}
+					onClick={this._onClick}
+
 				>
 					<StaticMap
 						preventStyleDiffing={true}
 						mapboxApiAccessToken={MAPBOX_TOKEN}
 						mapStyle="mapbox://styles/sandymapb/ck3bz48b71p891clftf18pvna"
 					/>
+					{this._renderhoveredItems()}
 				</DeckGL>
 			</div>
 		);
