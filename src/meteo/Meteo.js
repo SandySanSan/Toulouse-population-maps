@@ -14,7 +14,7 @@ class Meteo extends Component {
 	async getMeteoData() {
 
 		try {
-			const response = await axios.get(`https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=05-station-meteo-piscine-nakache`)
+			const response = await axios.get(`https://data.toulouse-metropole.fr/api/records/1.0/search/?dataset=07-station-meteo-avenue-de-grande-bretagne&sort=record_timestamp`)
 			console.log(response)
 			const meteoInfo = response.data.records
 			const infos = meteoInfo.length && meteoInfo.map(data => ({
