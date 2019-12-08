@@ -9,7 +9,7 @@ import PopulationToulouse from './recensement-population/PopulationToulouse';
 import Poi from './poi/Poi'
 import { Row, Layout, Typography } from 'antd';
 import { styleTitle } from './style'
-
+import Meteo from './meteo/Meteo'
 
 const { Title } = Typography;
 const { Header, Footer, Sider, Content } = Layout;
@@ -30,6 +30,8 @@ export default function App() {
                 <Switch>
                   <Route path="/toulouse-population" component={PopulationToulouse} />
                   <Route path="/toulouse-poi" component={Poi} />
+                  <Route path="/toulouse-meteo" component={Meteo} />
+
                 </Switch>
               </Row>
             </Content>

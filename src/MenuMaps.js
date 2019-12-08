@@ -33,8 +33,6 @@ export default class MenuMaps extends Component {
 				>
 					<Menu.ItemGroup key="g1">
 						<Menu.Item key="1"><Link to='/toulouse-population'>Population</Link></Menu.Item>
-						<Menu.Item key="2">Logement</Menu.Item>
-						<Menu.Item key="3">Activité</Menu.Item>
 
 					</Menu.ItemGroup>
 
@@ -50,7 +48,7 @@ export default class MenuMaps extends Component {
 				>
 					<Menu.Item key="5">Arbres d'alignement</Menu.Item>
 					<SubMenu key="sub3" title="Météo">
-						<Menu.Item key="7">Stations Météo</Menu.Item>
+						<Menu.Item key="7"><Link to='/toulouse-meteo'>Stations Météo</Link></Menu.Item>
 						<Menu.Item key="8">Prévisions</Menu.Item>
 					</SubMenu>
 				</SubMenu>
