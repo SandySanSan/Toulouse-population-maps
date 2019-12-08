@@ -5,17 +5,13 @@ import DeckGL from '@deck.gl/react'
 import { IconLayer } from '@deck.gl/layers';
 import { MAPBOX_TOKEN, INITIAL_VIEW_STATE } from '../utils'
 import atlas from '../images/atlas.png'
+import { Tag, Typography } from 'antd';
+import marker from '../images/adresse.png'
+import ICON_MAPPING from './icons-locations'
+import OverlayCategory from './OverlayCategory.js';
 
-const ICON_MAPPING = {
-	dogBrown: { x: 0, y: 0, width: 95, height: 96, mask: false },
-	dogGreen: { x: 96, y: 0, width: 95, height: 96, mask: false },
-	pool: { x: 186, y: 0, width: 95, height: 96, mask: false },
-	skate: { x: 278, y: 0, width: 95, height: 96, mask: false },
-	heart: { x: 372, y: 0, width: 95, height: 96, mask: false },
-	shop: { x: 465, y: 0, width: 95, height: 96, mask: false },
-	toilets: { x: 557, y: 0, width: 95, height: 96, mask: false },
 
-};
+const { Text } = Typography;
 
 class Poi extends Component {
 	state = {
@@ -27,12 +23,71 @@ class Poi extends Component {
 		x: 0,
 		y: 0,
 		hoveredObject: null,
-		expandedObjects: null
+		expandedObjects: null,
+		selectedRowKeys: [0], // Check here to configure the default column
 	}
+
+
 
 
 	componentDidMount() {
 		this.processCategory()
+		this.onFilter()
+	}
+
+	onSelectChange = selectedRowKeys => {
+		this.setState({ selectedRowKeys }, () => this.onFilter());
+
+	};
+
+	onFilter() {
+		const filteredCat = this.state.categories && this.state.selectedRowKeys.map(row => this.state.categories[row])
+		const filtered = poiData.filter(poi => poi.categorie === filteredCat[0] ||
+			poi.categorie === filteredCat[1] ||
+			poi.categorie === filteredCat[2] ||
+			poi.categorie === filteredCat[3] ||
+			poi.categorie === filteredCat[4] ||
+			poi.categorie === filteredCat[5] ||
+			poi.categorie === filteredCat[6] ||
+			poi.categorie === filteredCat[7]
+
+
+			? poi : null)
+		this.setState({ filtered }, () => console.log(this.state.filtered))
+	}
+
+	_renderIcons(d) {
+		if (d.categorie.includes('Caniparc')) {
+			return 'dogGreen'
+		}
+		else if (d.categorie.includes('Piscine')) {
+			return 'pool'
+		}
+		else if (d.categorie.includes('Skate')) {
+			return 'skate'
+		}
+		else if (d.categorie.includes('Marché')) {
+			return 'shop'
+		}
+		else if (d.categorie.includes('Sanisette')) {
+			return 'toilets'
+		}
+		else if (d.categorie.includes('Ecole maternelle ')) {
+			return 'school'
+		}
+		else if (d.categorie.includes('Ecole élémentaire')) {
+			return 'elementarySchool'
+		}
+		else if (d.categorie.includes('Santé')) {
+			return 'heart'
+		}
+	}
+	processData() {
+		const data = poiData.filter(poi =>
+			this.state.filtered && this.state.filtered.map(cat => cat === poi.categorie ? poi : null)
+		)
+
+		console.log(data)
 	}
 
 
@@ -40,59 +95,62 @@ class Poi extends Component {
 		return [
 			new IconLayer({
 				id: 'icon-layer',
-				data: poiData,
+				data: this.state.filtered,
 				pickable: true,
 				iconAtlas: atlas,
 				iconMapping: ICON_MAPPING,
-				getIcon: d => {
-					if (d.categorie.includes('Distributeur')) {
-						return 'dogBrown'
-					}
-					if (d.categorie.includes('Caniparc')) {
-						return 'dogGreen'
-					}
-					if (d.categorie.includes('Piscine')) {
-						return 'pool'
-					}
-					if (d.categorie.includes('Skate')) {
-						return 'skate'
-					}
-					if (d.categorie.includes('Marché')) {
-						return 'shop'
-					}
-					if (d.categorie.includes('Sanisette')) {
-						return 'toilets'
-					}
-				},
+				getIcon: d => this._renderIcons(d),
 				sizeScale: 10,
 				getPosition: d => d.shape.coordinates,
 				getSize: d => 5,
 				anchorY: 'bottom',
-				onHover: info => this.setState({
-					hoveredObject: info.object,
-					pointerX: info.x,
-					pointerY: info.y
-				})
-				// getColor: d => [Math.sqrt(d.exits), 140, 0],
-				// onHover: ({object, x, y}) => {
-				//   const tooltip = `${object.name}\n${object.address}`;
-				//   /* Update tooltip
-				// 	 http://deck.gl/#/documentation/developer-guide/adding-interactivity?section=example-display-a-tooltip-for-hovered-object
-				//   */
-				// }
+				filterEnabled: true,
+				visible: true,
+				alphaCutoff: 0, autoHighlight: true,
+
 			})
 		]
 	}
 
-	_onHover = (info) => {
-		if (this.state.expandedObjects) {
-			return;
+
+
+	_renderhoveredItems = () => {
+		const { x, y, hoveredObject, expandedObjects } = this.state;
+
+		if (expandedObjects) {
+			return (
+				<div className="tooltip interactive"
+					style={{
+						left: x, top: y, backgroundColor: 'white',
+						position: 'absolute', zIndex: 9999, padding: '15px', borderRadius: '5px', width: '240px', paddingBottom: '40px'
+					}}>
+					{expandedObjects.map(({ nom, descriptif, adresse, categorie, shape, commune }) => {
+						return (
+							<div key={nom}>
+								<p style={{ marginBottom: '15px' }}><Tag color="geekblue">{categorie}</Tag></p>
+								<h3>{nom}</h3>
+								<p>{descriptif}</p>
+								<div><img src={marker} alt='' /> <Text>{adresse.toUpperCase()}</Text></div>
+								<div style={{ marginLeft: '20px' }}><Text>{commune.toUpperCase()}</Text></div>
+							</div>
+						);
+					})}
+				</div>
+			);
 		}
 
-		const { x, y, object } = info;
-		this.setState({ x, y, hoveredObject: object });
-	}
+		if (!hoveredObject) {
+			return null;
+		}
 
+		return (
+			<div className="tooltip" style={{ left: x, top: y }}>
+				<h5>
+					{hoveredObject.nom}
+				</h5>
+			</div>
+		);
+	}
 	_onClick = (info) => {
 		const { x, y, object } = info;
 
@@ -108,58 +166,24 @@ class Poi extends Component {
 		}
 	}
 
-	_renderhoveredItems = () => {
-		const { x, y, hoveredObject, expandedObjects } = this.state;
-
-		if (expandedObjects) {
-			return (
-				<div className="tooltip interactive"
-					style={{
-						left: x, top: y, backgroundColor: 'white',
-						position: 'absolute', zIndex: 9999, padding: '20px', borderRadius: '5px', width: '300px'
-					}}>
-					{expandedObjects.map(({ nom, descriptif, adresse, categorie, shape }) => {
-						return (
-							<div key={nom}>
-								<h5>{descriptif}</h5>
-								<div>Adresse: {adresse}</div>
-								<div>Catégorie: {categorie}</div>
-							</div>
-						);
-					})}
-				</div>
-			);
-		}
-
-		if (!hoveredObject) {
-			return null;
-		}
-
-		return (
-			<div className="tooltip" style={{ left: x, top: y }}>
-				<h5>
-					{hoveredObject.name} {hoveredObject.year ? `(${hoveredObject.year})` : ''}
-				</h5>
-			</div>
-		);
-	}
-
 
 	// tableau des catégories
 	processCategory = () => {
-		const categories = []
+		const categoriesArray = []
 		poiData
 			.map(poi => {
-				return !categories.includes(poi.categorie) && categories.push(poi.categorie)
+				return !categoriesArray.includes(poi.categorie) && categoriesArray.push(poi.categorie)
 			})
-		this.setState({ categories })
+		this.setState({ categories: categoriesArray }, () => this.onFilter())
 	}
 
 
+
 	render() {
-		const { viewport } = this.state
+		const { viewport, categories, selectedRowKeys } = this.state
 		return (
 			<div style={{ display: 'flex' }}>
+				{categories.length !== 0 && <OverlayCategory selectedRowKeys={selectedRowKeys} onSelectChange={this.onSelectChange} categories={categories} />}
 				<DeckGL
 					layers={this._renderLayers()}
 					initialViewState={INITIAL_VIEW_STATE}
@@ -167,12 +191,14 @@ class Poi extends Component {
 					{...viewport}
 					onViewportChange={this._onViewportChange}
 					onClick={this._onClick}
-
+					layerFilter={({ layer, viewport }) => {
+						return layer.id !== 'bg' || viewport.id === 'minimap';
+					}}
 				>
 					<StaticMap
 						preventStyleDiffing={true}
 						mapboxApiAccessToken={MAPBOX_TOKEN}
-						mapStyle="mapbox://styles/sandymapb/ck3bz48b71p891clftf18pvna"
+						mapStyle="mapbox://styles/mapbox/dark-v10"
 					/>
 					{this._renderhoveredItems()}
 				</DeckGL>
