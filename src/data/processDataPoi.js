@@ -15,7 +15,7 @@ const poiData = poiJson
 		commune: poi.fields.commune
 
 	}))
-
+	.sort(a, b => `${a.categorie}` > `${b.categorie}` ? a : b)
 
 const poi = JSON.stringify(poiData, null, 2);
 fs.writeFileSync('poi-toulouse.json', poi)

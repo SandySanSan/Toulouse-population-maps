@@ -10,7 +10,6 @@ import marker from '../images/adresse.png'
 import ICON_MAPPING from './icons-locations'
 import OverlayCategory from './OverlayCategory.js';
 
-
 const { Text } = Typography;
 
 class Poi extends Component {
@@ -27,9 +26,6 @@ class Poi extends Component {
 		selectedRowKeys: [0], // Check here to configure the default column
 	}
 
-
-
-
 	componentDidMount() {
 		this.processCategory()
 		this.onFilter()
@@ -41,55 +37,49 @@ class Poi extends Component {
 	};
 
 	onFilter() {
-		const filteredCat = this.state.categories && this.state.selectedRowKeys.map(row => this.state.categories[row])
-		const filtered = poiData.filter(poi => poi.categorie === filteredCat[0] ||
-			poi.categorie === filteredCat[1] ||
-			poi.categorie === filteredCat[2] ||
-			poi.categorie === filteredCat[3] ||
-			poi.categorie === filteredCat[4] ||
-			poi.categorie === filteredCat[5] ||
-			poi.categorie === filteredCat[6] ||
-			poi.categorie === filteredCat[7]
 
+		const filteredCat = this.state.categories && this.state.selectedRowKeys
+			.map(row => this.state.categories[row])
 
-			? poi : null)
-		this.setState({ filtered }, () => console.log(this.state.filtered))
+		const filtered = poiData
+			.filter(poi => poi.categorie === filteredCat[0] ||
+				poi.categorie === filteredCat[1] ||
+				poi.categorie === filteredCat[2] ||
+				poi.categorie === filteredCat[3] ||
+				poi.categorie === filteredCat[4] ||
+				poi.categorie === filteredCat[5] ||
+				poi.categorie === filteredCat[6] ||
+				poi.categorie === filteredCat[7]
+				? poi : null)
+		this.setState({ filtered })
 	}
 
 	_renderIcons(d) {
 		if (d.categorie.includes('Caniparc')) {
 			return 'dogGreen'
 		}
-		else if (d.categorie.includes('Piscine')) {
+		if (d.categorie.includes('Piscine')) {
 			return 'pool'
 		}
-		else if (d.categorie.includes('Skate')) {
+		if (d.categorie.includes('Skate')) {
 			return 'skate'
 		}
-		else if (d.categorie.includes('Marché')) {
+		if (d.categorie.includes('Marché')) {
 			return 'shop'
 		}
-		else if (d.categorie.includes('Sanisette')) {
+		if (d.categorie.includes('Sanisette')) {
 			return 'toilets'
 		}
-		else if (d.categorie.includes('Ecole maternelle ')) {
+		if (d.categorie.includes('Ecole maternelle ')) {
 			return 'school'
 		}
-		else if (d.categorie.includes('Ecole élémentaire')) {
+		if (d.categorie.includes('Ecole élémentaire')) {
 			return 'elementarySchool'
 		}
-		else if (d.categorie.includes('Santé')) {
+		if (d.categorie.includes('Santé')) {
 			return 'heart'
 		}
 	}
-	processData() {
-		const data = poiData.filter(poi =>
-			this.state.filtered && this.state.filtered.map(cat => cat === poi.categorie ? poi : null)
-		)
-
-		console.log(data)
-	}
-
 
 	_renderLayers() {
 		return [
@@ -107,12 +97,9 @@ class Poi extends Component {
 				filterEnabled: true,
 				visible: true,
 				alphaCutoff: 0, autoHighlight: true,
-
 			})
 		]
 	}
-
-
 
 	_renderhoveredItems = () => {
 		const { x, y, hoveredObject, expandedObjects } = this.state;
@@ -130,8 +117,13 @@ class Poi extends Component {
 								<p style={{ marginBottom: '15px' }}><Tag color="geekblue">{categorie}</Tag></p>
 								<h3>{nom}</h3>
 								<p>{descriptif}</p>
-								<div><img src={marker} alt='' /> <Text>{adresse.toUpperCase()}</Text></div>
-								<div style={{ marginLeft: '20px' }}><Text>{commune.toUpperCase()}</Text></div>
+								<div style={{ display: 'flex' }}>
+									<div><img src={marker} alt='' /></div>
+									<div style={{ marginLeft: '20px' }}>
+										<div><Text>{adresse.toUpperCase()}</Text></div>
+										<div><Text>{commune.toUpperCase()}</Text></div>
+									</div>
+								</div>
 							</div>
 						);
 					})}
@@ -151,6 +143,7 @@ class Poi extends Component {
 			</div>
 		);
 	}
+
 	_onClick = (info) => {
 		const { x, y, object } = info;
 
@@ -160,12 +153,12 @@ class Poi extends Component {
 			this._closePopup();
 		}
 	}
+
 	_closePopup = () => {
 		if (this.state.expandedObjects) {
 			this.setState({ expandedObjects: null, hoveredObject: null });
 		}
 	}
-
 
 	// tableau des catégories
 	processCategory = () => {
@@ -176,8 +169,6 @@ class Poi extends Component {
 			})
 		this.setState({ categories: categoriesArray }, () => this.onFilter())
 	}
-
-
 
 	render() {
 		const { viewport, categories, selectedRowKeys } = this.state
@@ -198,7 +189,7 @@ class Poi extends Component {
 					<StaticMap
 						preventStyleDiffing={true}
 						mapboxApiAccessToken={MAPBOX_TOKEN}
-						mapStyle="mapbox://styles/mapbox/dark-v10"
+						mapStyle="mapbox://styles/sandymapb/ck3wsdgs91yce1ck0wrf06kh4"
 					/>
 					{this._renderhoveredItems()}
 				</DeckGL>
