@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
 import poiData from '../data/poi-toulouse.json'
-import StaticMap from 'react-map-gl'
+import ReactMapGL, { FlyToInterpolator } from 'react-map-gl'
 import DeckGL from '@deck.gl/react'
 import { IconLayer } from '@deck.gl/layers';
 import { MAPBOX_TOKEN, INITIAL_VIEW_STATE } from '../utils'
 import atlas from '../images/atlas.png'
-import { Tag, Typography } from 'antd';
+import { Tag, Typography, Select } from 'antd';
 import marker from '../images/adresse.png'
 import ICON_MAPPING from './icons-locations'
-import OverlayCategory from './OverlayCategory.js';
+import OverlayCategory from './OverlayCategory';
+import { styleToolTipPoi } from '../style'
 
-const { Text } = Typography;
+const { Text } = Typography
+const { Option } = Select
 
 class Poi extends Component {
 	state = {
 		viewport: {
+			...INITIAL_VIEW_STATE,
 			width: '100%',
 			height: window.innerHeight - 115
 		},
@@ -59,12 +62,9 @@ class Poi extends Component {
 		this.setState({ filtered })
 	}
 
-
 	onSelectChange = selectedRowKeys => {
 		this.setState({ selectedRowKeys }, () => this.onFilter());
-
 	};
-
 
 	_renderIcons(d) {
 		if (d.categorie.includes('Caniparc')) {
@@ -113,27 +113,24 @@ class Poi extends Component {
 		]
 	}
 
-	_renderhoveredItems = () => {
-		const { x, y, hoveredObject, expandedObjects } = this.state;
+	_renderTooltipOnClick() {
+		const { x, y, expandedObjects } = this.state;
 
+		console.log('ok')
 		if (expandedObjects) {
 			return (
-				<div className="tooltip interactive"
-					style={{
-						left: x, top: y, backgroundColor: 'white',
-						position: 'absolute', zIndex: 9999, padding: '15px', borderRadius: '5px', width: '240px', paddingBottom: '40px'
-					}}>
+				<div style={{ left: x, top: y }}>
 					{expandedObjects.map(({ nom, descriptif, adresse, categorie, shape, commune }) => {
 						return (
-							<div key={nom}>
-								<p style={{ marginBottom: '15px' }}><Tag color="geekblue">{categorie}</Tag></p>
+							<div key={nom} style={styleToolTipPoi}>
+								<p><Tag color="geekblue">{categorie}</Tag></p>
 								<h3>{nom}</h3>
 								<p>{descriptif}</p>
 								<div style={{ display: 'flex' }}>
 									<div><img src={marker} alt='' /></div>
 									<div style={{ marginLeft: '20px' }}>
-										<div><Text>{adresse.toUpperCase()}</Text></div>
-										<div><Text>{commune.toUpperCase()}</Text></div>
+										<div><Text>{adresse && adresse.toUpperCase()}</Text></div>
+										<div><Text>{commune && commune.toUpperCase()}</Text></div>
 									</div>
 								</div>
 							</div>
@@ -142,25 +139,30 @@ class Poi extends Component {
 				</div>
 			);
 		}
-
-		if (!hoveredObject) {
-			return null;
-		}
-
-		return (
-			<div className="tooltip" style={{ left: x, top: y }}>
-				<h5>
-					{hoveredObject.nom}
-				</h5>
-			</div>
-		);
 	}
 
 	_onClick = (info) => {
+		console.log(this.state.viewport)
 		const { x, y, object } = info;
-
 		if (object) {
 			this.setState({ x, y, expandedObjects: [object] });
+
+			const newViewport = {
+				...this.state.viewport,
+				longitude: object.shape.coordinates[0],
+				latitude: object.shape.coordinates[1],
+				zoom: 19,
+				minZoom: 8,
+				maxZoom: 18,
+				pitch: 60,
+				bearing: 0,
+				padding: [100, -100],
+				transitionDuration: 600,
+				transitionInterpolator: new FlyToInterpolator(),
+				onDragStart: this._closePopup,
+			}
+			this.setState({ viewport: newViewport })
+
 		} else {
 			this._closePopup();
 		}
@@ -177,24 +179,44 @@ class Poi extends Component {
 		const { viewport, categories, selectedRowKeys } = this.state
 		return (
 			<div style={{ display: 'flex' }}>
-				{categories.length !== 0 && <OverlayCategory selectedRowKeys={selectedRowKeys} onSelectChange={this.onSelectChange} categories={categories} />}
+				<Select
+					defaultValue="light"
+					style={{
+						width: '300px',
+						position: 'absolute',
+						zIndex: '9999'
+					}}
+					onChange={this.handleChange}
+				>
+					<Option value="light">Clair</Option>
+					<Option value="dark">Sombre</Option>
+				</Select>
+				{categories.length !== 0 &&
+					<OverlayCategory
+						selectedRowKeys={selectedRowKeys}
+						onSelectChange={this.onSelectChange}
+						categories={categories}
+					/>
+				}
 				<DeckGL
 					layers={this._renderLayers()}
-					initialViewState={INITIAL_VIEW_STATE}
+					initialViewState={viewport}
+					viewState={viewport}
 					controller
 					{...viewport}
-					onViewportChange={this._onViewportChange}
+					onViewStateChange={this._onViewportChange}
 					onClick={this._onClick}
 					layerFilter={({ layer, viewport }) => {
 						return layer.id !== 'bg' || viewport.id === 'minimap';
 					}}
 				>
-					<StaticMap
+					<ReactMapGL
+						{...viewport}
 						preventStyleDiffing={true}
 						mapboxApiAccessToken={MAPBOX_TOKEN}
 						mapStyle="mapbox://styles/sandymapb/ck3wsdgs91yce1ck0wrf06kh4"
 					/>
-					{this._renderhoveredItems()}
+					{this._renderTooltipOnClick()}
 				</DeckGL>
 			</div>
 		);

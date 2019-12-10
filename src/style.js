@@ -35,3 +35,29 @@ export const styleContainerYearPanel = {
 	zIndex: '999'
 }
 
+export const styleToolTipPoi = {
+	left: '25%',
+	top: '15%',
+	backgroundColor: `${'#eeefff'}`,
+	position: 'absolute',
+	zIndex: 9999,
+	padding: '35px',
+	borderRadius: `${'30px 30px 0 30px'}`,
+	width: '340px',
+	height: 'auto',
+	paddingBottom: '40px',
+	boxShadow: `${'2px 2px 5px 0 #cccccc'}`
+}
+
+export const styleLegends = {
+	width: '300px',
+	backgroundColor: 'white',
+	position: 'absolute',
+	display: 'flex',
+	flexDirection: 'column',
+	right: '15px',
+	marginTop: '15px',
+	padding: '15px',
+	borderRadius: '5px',
+	zIndex: '9998'
+}
