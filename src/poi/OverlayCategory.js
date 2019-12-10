@@ -19,7 +19,6 @@ const columns = [
 ];
 
 //icons legend
-
 const icons = [
 	<img src={school2} style={{ width: '35px', heigth: 'auto' }} alt='école' />,
 

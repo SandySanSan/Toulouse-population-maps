@@ -6,6 +6,9 @@ import { styleToolTip } from '../style'
 import { ResponsiveWaffle } from '@nivo/waffle'
 import { scaleThreshold } from 'd3-scale';
 import PannelYears from './PannelYears'
+import { Typography } from 'antd';
+
+const { Title } = Typography
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
@@ -14,7 +17,7 @@ const INITIAL_VIEW_STATE = {
 	latitude: 43.600000,
 	zoom: 11.2,
 	minZoom: 11,
-	maxZoom: 14,
+	maxZoom: 19,
 	pitch: 10,
 	bearing: 0,
 	padding: [100, -100]
@@ -60,7 +63,7 @@ class PopulationToulouse extends Component {
 		},
 		data: [],
 		dataAge: [],
-		isExtruded: false,
+		isExtruded: true,
 	}
 
 	componentDidMount() {
@@ -136,15 +139,15 @@ class PopulationToulouse extends Component {
 		return hoveredObject && (
 			<div>
 				<div style={styleToolTip}>
-					<p>Quartier : {hoveredObject.libelleQuartier}</p>
+					<p>Quartier : <Title level={4}>{hoveredObject.libelleQuartier}</Title></p>
 					<p>Nombre d'habitants : {Math.round(`${hoveredObject.population}`)}</p>
 
 					<ResponsiveWaffle
 						data={this.getAgeData(hoveredObject)}
 						total={100}
-						rows={18}
-						columns={14}
-						margin={{ top: 5, right: 10, bottom: 10, left: 120 }}
+						rows={14}
+						columns={18}
+						margin={{ right: 10, left: 120 }}
 						colors={{ scheme: 'nivo' }}
 						borderColor={{ from: 'color', modifiers: [['darker', 0.3]] }}
 						animate={true}

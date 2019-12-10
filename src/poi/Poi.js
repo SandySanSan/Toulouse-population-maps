@@ -31,10 +31,15 @@ class Poi extends Component {
 		this.onFilter()
 	}
 
-	onSelectChange = selectedRowKeys => {
-		this.setState({ selectedRowKeys }, () => this.onFilter());
-
-	};
+	// tableau des catégories
+	processCategory = () => {
+		const categoriesArray = []
+		poiData
+			.map(poi => {
+				return !categoriesArray.includes(poi.categorie) && categoriesArray.push(poi.categorie)
+			})
+		this.setState({ categories: categoriesArray }, () => this.onFilter())
+	}
 
 	onFilter() {
 
@@ -53,6 +58,13 @@ class Poi extends Component {
 				? poi : null)
 		this.setState({ filtered })
 	}
+
+
+	onSelectChange = selectedRowKeys => {
+		this.setState({ selectedRowKeys }, () => this.onFilter());
+
+	};
+
 
 	_renderIcons(d) {
 		if (d.categorie.includes('Caniparc')) {
@@ -160,15 +172,6 @@ class Poi extends Component {
 		}
 	}
 
-	// tableau des catégories
-	processCategory = () => {
-		const categoriesArray = []
-		poiData
-			.map(poi => {
-				return !categoriesArray.includes(poi.categorie) && categoriesArray.push(poi.categorie)
-			})
-		this.setState({ categories: categoriesArray }, () => this.onFilter())
-	}
 
 	render() {
 		const { viewport, categories, selectedRowKeys } = this.state

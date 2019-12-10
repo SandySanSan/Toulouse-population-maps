@@ -27,12 +27,13 @@ export default class MenuMaps extends Component {
 					title={
 						<span>
 							<Icon type="mail" />
-							<span>Recensement</span>
+							<span>Population</span>
 						</span>
 					}
 				>
 					<Menu.ItemGroup key="g1">
-						<Menu.Item key="1"><Link to='/toulouse-population'>Population</Link></Menu.Item>
+						<Menu.Item key="1"><Link to='/toulouse-population'>Répartition</Link></Menu.Item>
+						<Menu.Item key="interet"><Link to='/toulouse-poi'>Points d'intérêt</Link></Menu.Item>
 
 					</Menu.ItemGroup>
 
@@ -46,23 +47,12 @@ export default class MenuMaps extends Component {
 						</span>
 					}
 				>
-					<Menu.Item key="5">Arbres d'alignement</Menu.Item>
 					<SubMenu key="sub3" title="Météo">
 						<Menu.Item key="7"><Link to='/toulouse-meteo'>Stations Météo</Link></Menu.Item>
 						<Menu.Item key="8">Prévisions</Menu.Item>
 					</SubMenu>
 				</SubMenu>
-				<SubMenu
-					key="sub4"
-					title={
-						<span>
-							<Icon type="setting" />
-							<span>Citoyenneté</span>
-						</span>
-					}
-				>
-					<Menu.Item key="interet"><Link to='/toulouse-poi'>Points d'intérêt</Link></Menu.Item>
-				</SubMenu>
+
 			</Menu>
 		);
 	}

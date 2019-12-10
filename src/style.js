@@ -5,9 +5,9 @@ export const styleToolTip = {
 	padding: '15px',
 	borderRadius: '4px',
 	position: 'absolute',
-	height: '440px',
+	height: '385px',
 	right: '20px',
-	top: '130px'
+	top: '240px',
 }
 
 export const styleTitle = {
