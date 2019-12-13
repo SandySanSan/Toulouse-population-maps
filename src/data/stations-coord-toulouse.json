@@ -1,0 +1,272 @@
+[
+  {
+    "name": "La_Salade",
+    "coordinates": [1.43502131529, 43.6293938923],
+    "id": "09"
+  },
+  {
+    "name": "Mons_bas",
+    "coordinates": [1.5584948348199998, 43.6098517583],
+    "id": 31
+  },
+  {
+    "name": "Toulouse_parc_Jardin_Plantes",
+    "coordinates": [1.45064772358, 43.5932431688],
+    "id": 38
+  },
+  {
+    "name": "Marengo",
+    "coordinates": [1.45947954697, 43.6094731081],
+    "id": "02"
+  },
+  {
+    "name": "St_Jory_Chapelle_Beldou",
+    "coordinates": [1.35242748021, 43.7341448827],
+    "id": 33
+  },
+  {
+    "name": "Toulouse_Cepiere",
+    "coordinates": [1.3992297221499999, 43.5854161947],
+    "id": 52
+  },
+  {
+    "name": "Toulouse_Reynerie",
+    "coordinates": [1.39831154355, 43.5605984716],
+    "id": 26
+  },
+  {
+    "name": "Valade",
+    "coordinates": [1.43805130771, 43.6046192003],
+    "id": "00"
+  },
+  {
+    "name": "Toulouse_Ponsan",
+    "coordinates": [1.45269596814, 43.5682751485],
+    "id": 53
+  },
+  {
+    "name": "Pibrac_Bouconne",
+    "coordinates": [1.22322955511, 43.6279775242],
+    "id": 23
+  },
+  {
+    "name": "Toulouse_Canceropole",
+    "coordinates": [1.42571564321, 43.5619803457],
+    "id": 14
+  },
+  {
+    "name": "Nakache",
+    "coordinates": [1.43638064076, 43.5880764569],
+    "id": "05"
+  },
+  {
+    "name": "Toulouse_Chalets",
+    "coordinates": [1.44166087743, 43.6125843815],
+    "id": 46
+  },
+  {
+    "name": "Pech_David",
+    "coordinates": [1.44863707888, 43.563964561],
+    "id": 13
+  },
+  {
+    "name": "Toulouse_Cyprien",
+    "coordinates": [1.44721846889, 43.596321015],
+    "id": 27
+  },
+  {
+    "name": "Basso_Cambo",
+    "coordinates": [1.38566893056, 43.5664328353],
+    "id": "08"
+  },
+  {
+    "name": "Toulouse_Paul_Sabatier",
+    "coordinates": [1.46759871306, 43.5612126418],
+    "id": 37
+  },
+  {
+    "name": "Toulouse_parc_Jardin_Plantes",
+    "coordinates": [1.44909388287, 43.5949312062],
+    "id": 38
+  },
+  {
+    "name": "Meteopole",
+    "coordinates": [1.3737326088000001, 43.5744157856],
+    "id": "01"
+  },
+  {
+    "name": "Brax_ecole_Brax",
+    "coordinates": [1.24188364591, 43.616425797],
+    "id": 18
+  },
+  {
+    "name": "Toulouse_Purpan",
+    "coordinates": [1.397601209, 43.6076892388],
+    "id": 36
+  },
+  {
+    "name": "Pibrac_Bouconne",
+    "coordinates": [1.22188456398, 43.6285597435],
+    "id": 23
+  },
+  {
+    "name": "Toulouse_parc_Jardin_Plantes",
+    "coordinates": [1.45184841866, 43.5927827867],
+    "id": 38
+  },
+  {
+    "name": "Fenouillet_foyer_jeunes",
+    "coordinates": [1.39184091867, 43.6800706782],
+    "id": 17
+  },
+  {
+    "name": "Mondonville_ecole_aigle",
+    "coordinates": [1.27972685949, 43.6688870969],
+    "id": 20
+  },
+  {
+    "name": "Toulouse_Cote_Pavee",
+    "coordinates": [1.47812245236, 43.5954938748],
+    "id": 49
+  },
+  {
+    "name": "Toulouse_Fonderye",
+    "coordinates": [1.42567410481, 43.6338188492],
+    "id": 58
+  },
+  {
+    "name": "Soupetard",
+    "coordinates": [1.47867531451, 43.607630067],
+    "id": 11
+  },
+  {
+    "name": "Ecluse",
+    "coordinates": [1.44012398427, 43.5926804791],
+    "id": "06"
+  },
+  {
+    "name": "St_Alban_Leon_Jourhaux",
+    "coordinates": [1.3983870953, 43.7087158728],
+    "id": 16
+  },
+  {
+    "name": "Toulouse_St_exp",
+    "coordinates": [1.4762860951699999, 43.5838302132],
+    "id": 45
+  },
+  {
+    "name": "Colomiers_ZI_Enjacca",
+    "coordinates": [1.3005033729, 43.5956740963],
+    "id": 24
+  },
+  {
+    "name": "Toulouse_ZI_Thibaud",
+    "coordinates": [1.40360872776, 43.5528184412],
+    "id": 40
+  },
+  {
+    "name": "Toulouse_parc_japonais",
+    "coordinates": [1.43341043236, 43.6113398915],
+    "id": 42
+  },
+  {
+    "name": "L_union_ecole_Belbeze",
+    "coordinates": [1.48338159906, 43.655822821],
+    "id": 15
+  },
+  {
+    "name": "Colomiers_ZA_Perget",
+    "coordinates": [1.3088087606699998, 43.6128776902],
+    "id": 22
+  },
+  {
+    "name": "Blagnac_Quinze_sols",
+    "coordinates": [1.39933257019, 43.661326411],
+    "id": 50
+  },
+  {
+    "name": "Mons_haut",
+    "coordinates": [1.5716509754199999, 43.6110785465],
+    "id": 32
+  },
+  {
+    "name": "Toulouse_Cyprien",
+    "coordinates": [1.43100405255, 43.5981467139],
+    "id": 27
+  },
+  {
+    "name": "Toulouse_Carmes",
+    "coordinates": [1.44544233141, 43.5976902944],
+    "id": 28
+  },
+  {
+    "name": "Busca",
+    "coordinates": [1.45206030603, 43.5884345602],
+    "id": "03"
+  },
+  {
+    "name": "Toulouse_Lardenne",
+    "coordinates": [1.37818224354, 43.5895088571],
+    "id": 51
+  },
+  {
+    "name": "Toulouse_parc_Maourines",
+    "coordinates": [1.45250312516, 43.6315881265],
+    "id": 62
+  },
+  {
+    "name": "Blagnac_centre",
+    "coordinates": [1.39792929115, 43.6355139507],
+    "id": 61
+  },
+  {
+    "name": "Mondouzil_Mairie",
+    "coordinates": [1.5564018124499999, 43.6337335465],
+    "id": 19
+  },
+  {
+    "name": "Castelginest",
+    "coordinates": [1.42457180182, 43.6949619707],
+    "id": 10
+  },
+  {
+    "name": "Toulouse_Maison_de_retraite_Garonne",
+    "coordinates": [1.40676837018, 43.6112154411],
+    "id": 41
+  },
+  {
+    "name": "Toulouse_parc_japonais",
+    "coordinates": [1.43186347391, 43.6124599337],
+    "id": 42
+  },
+  {
+    "name": "Toulouse_Minimes",
+    "coordinates": [1.43260830576, 43.6209632772],
+    "id": 43
+  },
+  {
+    "name": "Avenue_Grde_Bretagne",
+    "coordinates": [1.41639388942, 43.5974413368],
+    "id": "07"
+  },
+  {
+    "name": "Montaudran",
+    "coordinates": [1.49133009833, 43.563362188],
+    "id": 12
+  },
+  {
+    "name": "Ile_Empalot",
+    "coordinates": [1.43666315725, 43.5708338234],
+    "id": "04"
+  },
+  {
+    "name": "Toulouse_parc_Jardin_Plantes",
+    "coordinates": [1.45213093516, 43.5954427234],
+    "id": 38
+  },
+  {
+    "name": "Toulouse_Jean_Jaures",
+    "coordinates": [1.45420842929, 43.6073573503],
+    "id": 44
+  }
+]
