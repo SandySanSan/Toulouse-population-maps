@@ -8,7 +8,7 @@ import school2 from '../images/school2.png'
 import sanisette from '../images/sanisette.png'
 import shop from '../images/marche.png'
 import skate from '../images/skate.png'
-import { styleLegends } from '../style';
+import { styleLegends, iconsPoiStyle } from '../style';
 
 const columns = [
 	{
@@ -21,14 +21,14 @@ const columns = [
 
 //icons legend
 const icons = [
-	<img src={school2} style={{ width: '35px', heigth: 'auto' }} alt='école' />,
-	<img src={dog} style={{ width: '35px', heigth: 'auto' }} alt='caniparc' />,
-	<img src={pool} style={{ width: '35px', heigth: 'auto' }} alt='piscine' />,
-	<img src={heart} style={{ width: '35px', heigth: 'auto' }} alt='défibrillateur' />,
-	<img src={school} style={{ width: '35px', heigth: 'auto' }} alt='école' />,
-	<img src={sanisette} style={{ width: '35px', heigth: 'auto' }} alt='sanisette' />,
-	<img src={shop} style={{ width: '35px', heigth: 'auto' }} alt='marché' />,
-	<img src={skate} style={{ width: '35px', heigth: 'auto' }} alt='skatepark' />,
+	<img src={dog} style={iconsPoiStyle} alt='caniparc' />,
+	<img src={school2} style={iconsPoiStyle} alt='école' />,
+	<img src={school} style={iconsPoiStyle} alt='école' />,
+	<img src={shop} style={iconsPoiStyle} alt='marché' />,
+	<img src={sanisette} style={iconsPoiStyle} alt='sanisette' />,
+	<img src={heart} style={iconsPoiStyle} alt='défibrillateur' />,
+	<img src={pool} style={iconsPoiStyle} alt='piscine' />,
+	<img src={skate} style={iconsPoiStyle} alt='skatepark' />,
 ]
 
 class OverlayCategory extends Component {

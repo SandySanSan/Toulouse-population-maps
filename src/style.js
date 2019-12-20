@@ -1,9 +1,9 @@
 
 export const styleToolTip = {
 	backgroundColor: `${'rgb(255, 255, 255, 0.9)'}`,
-	width: '350px',
-	padding: '15px',
-	borderRadius: '4px',
+	width: '300px',
+	padding: '8px',
+	borderRadius: '3px',
 	position: 'absolute',
 	height: '385px',
 	right: '20px',
@@ -36,18 +36,17 @@ export const styleContainerYearPanel = {
 }
 
 export const styleToolTipPoi = {
-	left: '25%',
-	top: '15%',
 	backgroundColor: `${'#eeefff'}`,
 	position: 'absolute',
 	zIndex: 9999,
-	padding: '35px',
-	borderRadius: `${'30px 30px 0 30px'}`,
-	width: '340px',
+	padding: '15px',
+	borderRadius: `${'10px 10px 0 10px'}`,
+	width: '310px',
 	height: 'auto',
 	paddingBottom: '40px',
 	boxShadow: `${'2px 2px 5px 0 #cccccc'}`
 }
+
 
 export const styleLegends = {
 	width: '300px',
@@ -60,4 +59,9 @@ export const styleLegends = {
 	padding: '15px',
 	borderRadius: '5px',
 	zIndex: '9998'
+}
+
+export const iconsPoiStyle = {
+	width: '35px',
+	heigth: 'auto'
 }
