@@ -18,7 +18,7 @@ const CardToolTip = ({ text, img, temp }) => {
 		<div style={styleCase}>
 			<Tooltip placement="bottom" title={text}>
 				<div>
-					<img src={img} alt='degrés' width='50px' height='auto' />
+					<img src={img} alt='' width='70px' height='auto' />
 				</div>
 				<div>
 					<Title level={4}>{temp}</Title>

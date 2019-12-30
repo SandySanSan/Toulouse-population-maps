@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import poiData from '../data/poi-toulouse.json'
-import ReactMapGL, { FlyToInterpolator, Popup } from 'react-map-gl'
+import ReactMapGL, { FlyToInterpolator } from 'react-map-gl'
 import DeckGL from '@deck.gl/react'
 import { IconLayer } from '@deck.gl/layers';
 import { MAPBOX_TOKEN, INITIAL_VIEW_STATE } from '../utils'
 import atlas from '../images/atlas.png'
-import { Tag, Typography, Select } from 'antd';
+import { Tag, Typography, Select, Row, Col, PageHeader } from 'antd';
 import marker from '../images/adresse.png'
 import ICON_MAPPING from './icons-locations'
 import OverlayCategory from './OverlayCategory';
@@ -14,7 +14,33 @@ import { styleToolTipPoi } from '../style'
 const { Text } = Typography
 const { Option } = Select
 
-const style = "mapbox://styles/sandymapb/ck3wsdgs91yce1ck0wrf06kh4"
+const MAPBOX_DEFAULT_MAPSTYLES = [
+	{ label: 'Streets V10', value: 'mapbox://styles/mapbox/streets-v10' },
+	{ label: 'Outdoors V10', value: 'mapbox://styles/mapbox/outdoors-v10' },
+	{ label: 'Light V9', value: 'mapbox://styles/mapbox/light-v9' },
+	{ label: 'Dark V9', value: 'mapbox://styles/mapbox/dark-v9' },
+	{ label: 'Satellite V9', value: 'mapbox://styles/mapbox/satellite-v9' },
+	{
+		label: 'Satellite Streets V10',
+		value: 'mapbox://styles/mapbox/satellite-streets-v10'
+	},
+	{
+		label: 'Navigation Preview Day V4',
+		value: 'mapbox://styles/mapbox/navigation-preview-day-v4'
+	},
+	{
+		label: 'Navitation Preview Night V4',
+		value: 'mapbox://styles/mapbox/navigation-preview-night-v4'
+	},
+	{
+		label: 'Navigation Guidance Day V4',
+		value: 'mapbox://styles/mapbox/navigation-guidance-day-v4'
+	},
+	{
+		label: 'Navigation Guidance Night V4',
+		value: 'mapbox://styles/mapbox/navigation-guidance-night-v4'
+	}
+];
 
 class Poi extends Component {
 	state = {
@@ -28,8 +54,9 @@ class Poi extends Component {
 		y: 0,
 		hoveredObject: null,
 		expandedObjects: null,
-		selectedRowKeys: [0],
-		showPopup: false
+		selectedRowKeys: [1, 2, 3],
+		showPopup: false,
+		style: 'mapbox://styles/mapbox/navigation-preview-night-v4',
 	}
 
 	componentDidMount() {
@@ -47,7 +74,6 @@ class Poi extends Component {
 		const sorted = categoriesArray.sort((a, b) => a.localeCompare(b, 'fr', { ignorePunctuation: true }))
 		this.setState({ categories: sorted },
 			() => this.onFilter())
-		console.log(sorted)
 	}
 
 	onFilter() {
@@ -81,6 +107,10 @@ class Poi extends Component {
 
 			},
 		})
+	};
+
+	onStyleChange = style => {
+		this.setState({ style });
 	};
 
 	_onViewportChange = (viewport) => {
@@ -148,7 +178,7 @@ class Poi extends Component {
 
 	_renderTooltipOnClick() {
 		const { hoveredObject, pointerX, pointerY } = this.state || {};
-		const { nom, descriptif, adresse, categorie, shape, commune } = hoveredObject || {}
+		const { nom, descriptif, adresse, categorie, commune } = hoveredObject || {}
 
 		return hoveredObject && (
 			<div style={{ position: 'absolute', zIndex: 1, pointerEvents: 'none', left: pointerX, top: pointerY }}>
@@ -200,55 +230,79 @@ class Poi extends Component {
 
 	_closePopup = () => {
 		if (this.state.expandedObjects) {
-			this.setState({ expandedObjects: null, hoveredObject: null, showPopup: false });
+			this.setState({ expandedObjects: null, hoveredObject: null });
 		}
 	}
 
 	render() {
-		const { viewport, categories, selectedRowKeys, showPopup } = this.state
+		const { viewport, categories, selectedRowKeys } = this.state
 		return (
-			<div style={{ display: 'flex' }}>
-				<Select
-					defaultValue="light"
-					style={{
-						width: '300px',
-						position: 'absolute',
-						zIndex: '9999'
-					}}
-					onChange={this.handleChange}
-				>
-					<Option value="light">Clair</Option>
-					<Option value="dark">Sombre</Option>
-				</Select>
-				{categories.length !== 0 &&
-					<OverlayCategory
-						selectedRowKeys={selectedRowKeys}
-						onSelectChange={this.onSelectChange}
-						categories={categories}
-					/>
-				}
-				<DeckGL
-					layers={this._renderLayers()}
-					initialViewState={viewport}
-					viewState={viewport}
-					controller
-					{...viewport}
-					onViewStateChange={this._onViewStateChange}
-					onClick={this._onClick}
-					layerFilter={({ layer, viewport }) => {
-						return layer.id !== 'bg' || viewport.id === 'minimap';
-					}}
-				>
-					<ReactMapGL
+			<Row>
+				<Col span={19}>
+					<DeckGL
+						layers={this._renderLayers()}
+						initialViewState={viewport}
+						viewState={viewport}
+						controller
 						{...viewport}
-						preventStyleDiffing={true}
-						mapboxApiAccessToken={MAPBOX_TOKEN}
-						mapStyle={style}
+						onViewStateChange={this._onViewStateChange}
+						onClick={this._onClick}
+						layerFilter={({ layer, viewport }) => {
+							return layer.id !== 'bg' || viewport.id === 'minimap';
+						}}
 					>
-					</ReactMapGL>
-				</DeckGL>
+						<ReactMapGL
+							{...viewport}
+							preventStyleDiffing={true}
+							mapboxApiAccessToken={MAPBOX_TOKEN}
+							mapStyle={this.state.style}						>
+						</ReactMapGL>
+					</DeckGL>
+				</Col>
+				<Col span={5}>
+					<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+						<div>
+							<PageHeader
+								style={{
+									border: '1px solid rgb(235, 237, 240)',
+									zIndex: '3',
+									width: '100%',
+									backgroundColor: 'rgba(255, 255, 255, 0.6)'
+								}}
+								title="Points d'intérêt"
+								subTitle="Localisation des points d'intérêt de Toulouse. Aménagements, Citoyenneté"
+							/>
+						</div>
+						<div style={{ padding: '15px', width: '100%' }}>
+							<p>Styles de la carte :</p>
+							<Select
+								value={this.state.style}
+								style={{
+									width: '100%',
+								}}
+								onChange={this.onStyleChange}
+							>
+								{MAPBOX_DEFAULT_MAPSTYLES.map(style => (
+									<Option key={style.value} value={style.value}>
+										{style.label}
+									</Option>
+								))}
+							</Select>
+						</div>
+						<div style={{ padding: '15px', width: '100%' }}>
+							<p>Légende :</p>
+							{categories.length !== 0 &&
+								<OverlayCategory
+									selectedRowKeys={selectedRowKeys}
+									onSelectChange={this.onSelectChange}
+									categories={categories}
+								/>
+							}
+						</div>
+					</div>
+				</Col>
 				{this._renderTooltipOnClick()}
-			</div>
+			</Row>
 		);
 	}
 }

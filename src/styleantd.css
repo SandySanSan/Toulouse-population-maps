@@ -4,6 +4,9 @@
 
 .ant-layout-header {
   background: #0c0000;
+  height: 64px;
+  padding: 0 22px;
+  line-height: 48px;
 }
 
 .ant-menu-dark,
@@ -15,5 +18,6 @@
   background: #3e3e3e;
 }
 .ant-layout-footer {
-  padding: 15px 50px;
+  padding: 0px 50px;
+  margin: 0;
 }

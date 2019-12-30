@@ -1,37 +1,32 @@
 
 export const styleToolTip = {
-	backgroundColor: `${'rgb(255, 255, 255, 0.9)'}`,
-	width: '300px',
-	padding: '8px',
-	borderRadius: '3px',
+	backgroundColor: 'cornsilk',
+	width: '25rem',
+	borderRadius: '6px',
 	position: 'absolute',
-	height: '385px',
-	right: '20px',
-	top: '240px',
+	height: '48%',
+	left: '20px',
+	zIndex: '9999',
+	padding: '15px',
+	top: '1vh',
+	boxShadow: `${'1px 1px 3px 0 #545a6b'}`
+
 }
 
-export const styleTitle = {
-	color: 'white',
-	padding: '10px'
-}
 
 export const styleYearPanel = {
-	backgroundColor: `${'rgb(255, 255, 255, 0.9)'}`,
-	width: '350px',
+	width: '100%',
 	display: 'flex',
 	flexDirection: 'column',
-	alignItems: 'flex-end',
+	alignItems: 'flex-start',
 	borderRadius: '4px',
-	marginTop: '10px',
-	marginRight: '20px'
 }
 
 export const styleContainerYearPanel = {
 	display: 'flex',
 	flexDirection: 'column',
-	alignItems: 'flex-end',
+	alignItems: 'flex-start',
 	width: '100%',
-	height: '100px',
 	zIndex: '999'
 }
 
@@ -49,13 +44,10 @@ export const styleToolTipPoi = {
 
 
 export const styleLegends = {
-	width: '300px',
+	width: '100%',
 	backgroundColor: 'white',
-	position: 'absolute',
 	display: 'flex',
 	flexDirection: 'column',
-	right: '15px',
-	marginTop: '15px',
 	padding: '15px',
 	borderRadius: '5px',
 	zIndex: '9998'

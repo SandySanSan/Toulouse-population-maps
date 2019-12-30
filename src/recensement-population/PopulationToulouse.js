@@ -5,8 +5,8 @@ import { PolygonLayer } from '@deck.gl/layers'
 import { styleToolTip } from '../style'
 import { ResponsiveWaffle } from '@nivo/waffle'
 import { scaleThreshold } from 'd3-scale';
-import PannelYears from './PannelYears'
-import { Typography } from 'antd';
+import { Typography, PageHeader, Row, Col } from 'antd';
+import DescriptionData from './DescriptionData'
 
 const { Title } = Typography
 
@@ -20,7 +20,6 @@ const INITIAL_VIEW_STATE = {
 	maxZoom: 19,
 	pitch: 10,
 	bearing: 0,
-	padding: [100, -100]
 };
 
 const data2011 = require('../data/population-toulouse-2011.json');
@@ -59,7 +58,7 @@ export const COLOR_SCALE = scaleThreshold()
 class PopulationToulouse extends Component {
 	state = {
 		viewport: {
-			width: '100%', height: window.innerHeight - 115
+			width: '100%', height: window.innerHeight
 		},
 		data: [],
 		dataAge: [],
@@ -67,7 +66,7 @@ class PopulationToulouse extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({ data: data2012 }, () => this.getTotalPop())
+		this.setState({ data: data2011, currentYear: 2011 }, () => this.getTotalPop())
 	}
 
 	_onViewportChange({ viewport }) {
@@ -80,7 +79,6 @@ class PopulationToulouse extends Component {
 	}
 
 	getAgeData(hoveredObject) {
-
 		const dataAge = [
 			{
 				"id": "0-14 ans",
@@ -126,28 +124,28 @@ class PopulationToulouse extends Component {
 
 	getTotalPop() {
 		const { data } = this.state
-
 		const total = data && data.reduce((totalP, quartier) => {
 			return totalP + quartier.population
 		}, 0)
 		this.setState({ totalPop: total })
-
 	}
+
 	_renderTooltip() {
-
 		const { hoveredObject } = this.state || {};
-		return hoveredObject && (
-			<div>
-				<div style={styleToolTip}>
-					<p>Quartier : <Title level={4}>{hoveredObject.libelleQuartier}</Title></p>
-					<p>Nombre d'habitants : {Math.round(`${hoveredObject.population}`)}</p>
 
+		return hoveredObject && (
+			<div style={{ height: '80vh' }}>
+				<div style={styleToolTip}>
+					<div>
+						<Title level={4}>{hoveredObject.libelleQuartier}</Title>
+					</div>
+					<p>Nombre d'habitants : {Math.round(`${hoveredObject.population}`)}</p>
 					<ResponsiveWaffle
 						data={this.getAgeData(hoveredObject)}
 						total={100}
-						rows={14}
-						columns={18}
-						margin={{ right: 10, left: 120 }}
+						rows={10}
+						columns={20}
+						margin={{ right: 5, left: 120 }}
 						colors={{ scheme: 'nivo' }}
 						borderColor={{ from: 'color', modifiers: [['darker', 0.3]] }}
 						animate={true}
@@ -155,7 +153,7 @@ class PopulationToulouse extends Component {
 						motionDamping={11}
 						legends={[
 							{
-								anchor: 'top-left',
+								anchor: 'left',
 								direction: 'column',
 								justify: false,
 								translateX: -110,
@@ -167,7 +165,6 @@ class PopulationToulouse extends Component {
 								itemOpacity: 1,
 								itemTextColor: '#777',
 								symbolSize: 20,
-
 							}
 						]}
 					/>
@@ -199,12 +196,10 @@ class PopulationToulouse extends Component {
 					pointerX: info.x,
 					pointerY: info.y
 				}),
-
 				transitions: {
 					elevationScale: 3000
 				}
 			})]
-
 	}
 
 	toggleExtruded = (checked) => {
@@ -219,27 +214,42 @@ class PopulationToulouse extends Component {
 	render() {
 		const { viewport } = this.state
 		return (
-			<div style={{ display: 'flex' }}>
-				<DeckGL
-					layers={this._renderLayers()}
-					initialViewState={INITIAL_VIEW_STATE}
-					controller
-					{...viewport}
-					onViewportChange={this._onViewportChange}
-				>
-					<StaticMap
-						preventStyleDiffing={true}
-						mapboxApiAccessToken={MAPBOX_TOKEN}
-						mapStyle="mapbox://styles/sandymapb/ck3bz48b71p891clftf18pvna"
-					/>
-				</DeckGL>
-				<PannelYears
-					handleYear={this.handleYear}
-					toggleExtruded={this.toggleExtruded}
-					yearsData={yearsData}
-				/>
+			<Row>
+				<Col xs={24} lg={19}>
+					<DeckGL
+						layers={this._renderLayers()}
+						initialViewState={INITIAL_VIEW_STATE}
+						controller
+						{...viewport}
+						onViewportChange={this._onViewportChange}
+					>
+						<StaticMap
+							preventStyleDiffing
+							mapboxApiAccessToken={MAPBOX_TOKEN}
+							mapStyle="mapbox://styles/sandymapb/ck3bz48b71p891clftf18pvna"
+						/>
+					</DeckGL>
+				</Col>
+				<Col xs={24} md={24} lg={5}>
+					<PageHeader
+						style={{
+							border: '1px solid rgb(235, 237, 240)',
+							position: 'absolute',
+							zIndex: '3',
+							width: '100%',
+							backgroundColor: 'rgba(255, 255, 255, 0.6)'
+						}}
+						title="Population des Grands Quartiers"
+						subTitle="Données du recensement de la population toulousaine à l'échelle des grands quartiers de 2011 à 2015"
+					>
+						<DescriptionData
+							toggleExtruded={this.toggleExtruded}
+							yearsData={yearsData}
+							handleYear={this.handleYear} />
+					</PageHeader>
+				</Col>
 				{this._renderTooltip()}
-			</div>
+			</Row>
 		);
 	}
 }

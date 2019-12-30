@@ -3,12 +3,14 @@ import { Card, Col, Typography, Tooltip, Tag, Row } from 'antd';
 import CardToolTip from './CardToolTIp';
 import thermo from '../images/Thermometer-50.png'
 import wet from '../images/Cloud-Drizzle-Alt.png'
-// import direction from '../images/Compass.png'
 import wind from '../images/Wind.png'
 import pluie from '../images/Cloud-Hail-Alt.png'
 import pression from '../images/Cloud-Download.png'
-
+import TempStations from './TempStations'
 import moment from 'moment'
+import { data } from './previousData.js'
+
+
 var idLocale = require('moment/locale/fr');
 moment.locale("fr", idLocale)
 
@@ -61,20 +63,27 @@ function CardStation({ info, initialLoading }) {
 
 
 	return (
-		<Row>
-			<Col className="gutter-row" span={24} >
-				<Card title={title} bordered={false} style={{ margin: '15px' }} loading={initialLoading}>
-					<div style={{ display: 'flex', justifyContent: 'center' }}>
-						<CardToolTip temp={`${info.temp} °C`} img={thermo} text={textTemp} />
-						<CardToolTip temp={`${info.humidite} %`} img={wet} text={textHumidite} />
-						<CardToolTip temp={`${info.forceMoyenneVent} km/h`} img={wind} text={textWInd} />
-						<CardToolTip temp={`${info.pluie} mm`} img={pluie} text={textPluie} />
-						<CardToolTip temp={`${info.pression} Pa`} img={pression} text={textPression} />
+		<div>
+			<Row>
+				<Col className="gutter-row" span={24} >
+					<Card title={title} bordered={false} style={{ margin: '15px' }} loading={initialLoading}>
+						<div style={{ display: 'flex', justifyContent: 'center' }}>
+							<CardToolTip temp={`${info.temp} °C`} img={thermo} text={textTemp} />
+							<CardToolTip temp={`${info.humidite} %`} img={wet} text={textHumidite} />
+							<CardToolTip temp={`${info.forceMoyenneVent} km/h`} img={wind} text={textWInd} />
+							<CardToolTip temp={`${info.pluie} mm`} img={pluie} text={textPluie} />
+							<CardToolTip temp={`${info.pression} Pa`} img={pression} text={textPression} />
 
-					</div>
-				</Card>
-			</Col>
-		</Row>
+						</div>
+					</Card>
+				</Col>
+			</Row>
+			<Row>
+				<Col style={{ height: '300px' }}>
+					<TempStations />
+				</Col>
+			</Row>
+		</div>
 	)
 }
 

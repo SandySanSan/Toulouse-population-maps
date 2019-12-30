@@ -67,7 +67,6 @@ class OverlayCategory extends Component {
 
 		return (
 			<div style={styleLegends}>
-
 				<div>
 					<Table
 						rowSelection={rowSelection}

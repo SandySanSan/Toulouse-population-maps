@@ -5,7 +5,6 @@ import CardStation from './CardStation';
 import StaticMap from 'react-map-gl'
 import DeckGL from '@deck.gl/react'
 import { IconLayer } from '@deck.gl/layers';
-import IconClusterLayer from './icon-cluster-layer';
 import icon from '../images/map-pin2.svg'
 import coordStations from '../data/stations-coord-toulouse.json'
 import { Row, Col, Typography } from 'antd'
@@ -22,8 +21,8 @@ const INITIAL_VIEW_STATE = {
 	maxZoom: 19,
 	pitch: 10,
 	bearing: 0,
-	width: window.innerWidth / 2,
-	height: window.innerHeight - 120,
+	width: window.innerWidth / 3,
+	height: window.innerHeight - 320,
 };
 
 class Meteo extends Component {
@@ -34,8 +33,6 @@ class Meteo extends Component {
 		currentStation: 0,
 		hoveredObject: null,
 		expandedObjects: null,
-		x: 0,
-		y: 0
 	}
 
 	componentDidMount() {
@@ -57,7 +54,6 @@ class Meteo extends Component {
 					id: data.datasetid,
 					humidite: data.fields.humidite,
 					pluie: data.fields.pluie,
-
 					pression: data.fields.pression,
 					timestamp: data.record_timestamp,
 					typeStation: data.fields.type_de_station,
@@ -104,15 +100,22 @@ class Meteo extends Component {
 	_renderTooltip() {
 		const { hoveredObject, pointerX, pointerY } = this.state || {};
 		return hoveredObject && (
-			<div style={{ position: 'absolute', zIndex: 1, pointerEvents: 'none', left: pointerX, top: pointerY }}>
-				{hoveredObject[0] && hoveredObject[0].id}
+			<div style={{
+				position: 'absolute',
+				zIndex: 1,
+				pointerEvents: 'none',
+				left: pointerX,
+				top: pointerY,
+				backgroundColor: 'white',
+				padding: '10px'
+			}}>
+				{hoveredObject[0] && hoveredObject[0].id.split('-').join(' ').slice(3).toUpperCase()}
 			</div>
 		);
 	}
 
 	_onClick = (info) => {
-		const { x, y, object } = info;
-		// console.log(object[0].id)
+		const { object } = info;
 		const currentId = (element) => object && element[0].id === object[0].id;
 		let idStation = this.state.infos.findIndex(currentId)
 		if (idStation === -1)
@@ -127,7 +130,7 @@ class Meteo extends Component {
 		return (
 			<div>
 				<Row>
-					<Col lg={11} s={24} xs={24}>
+					<Col lg={14} s={24} xs={24}>
 						<div style={{ padding: '20px' }}>
 							<Title level={2}>
 								Stations Météo de la métropole Toulousaine
@@ -149,14 +152,13 @@ class Meteo extends Component {
 								/>}
 						</div>
 					</Col>
-					<Col lg={13} s={24} xs={24}>
+					<Col lg={10} s={24} xs={24}>
 						<DeckGL
 							layers={this._renderLayers()}
 							initialViewState={INITIAL_VIEW_STATE}
 							controller
 							{...viewport}
 							onViewportChange={this._onViewportChange}
-							//  onViewStateChange={this._closePopup}
 							onClick={this._onClick}
 						>
 							<StaticMap

@@ -8,17 +8,20 @@ const { SubMenu } = Menu;
 
 export default class MenuMaps extends Component {
 
-	handleClick = e => {
-		console.log('click ', e);
+	state = {
+		collapsed: false,
+	};
+
+	toggle = () => {
+		this.setState({
+			collapsed: !this.state.collapsed,
+		});
 	};
 
 	render() {
 		return (
 			<Menu
-				onClick={this.handleClick}
 				style={{ height: '100%' }}
-				defaultSelectedKeys={['1']}
-				defaultOpenKeys={['sub1']}
 				mode="inline"
 				theme="dark"
 			>
@@ -26,33 +29,37 @@ export default class MenuMaps extends Component {
 					key="sub1"
 					title={
 						<span>
-							<Icon type="mail" />
+							<Icon type="team" />
 							<span>Population</span>
 						</span>
 					}
 				>
 					<Menu.ItemGroup key="g1">
-						<Menu.Item key="1"><Link to='/toulouse-population'>Répartition</Link></Menu.Item>
-						<Menu.Item key="interet"><Link to='/toulouse-poi'>Points d'intérêt</Link></Menu.Item>
-
+						<Menu.Item key="1">
+							<Link to='/toulouse-population'>Grands Quartiers</Link>
+						</Menu.Item>
+						<Menu.Item key="2">
+							<Link to='/toulouse-poi'>Points d'intérêt</Link>
+						</Menu.Item>
 					</Menu.ItemGroup>
-
 				</SubMenu>
 				<SubMenu
 					key="sub2"
 					title={
 						<span>
-							<Icon type="appstore" />
+							<Icon type="cloud" theme='filled' />
 							<span>Environnement</span>
 						</span>
 					}
 				>
-					<SubMenu key="sub3" title="Météo">
-						<Menu.Item key="7"><Link to='/toulouse-meteo'>Stations Météo</Link></Menu.Item>
-						<Menu.Item key="8">Prévisions</Menu.Item>
-					</SubMenu>
+					<Menu.ItemGroup key="g2">
+						<Menu.Item key="3">
+							<Link to='/toulouse-meteo'>
+								Stations Météo
+							</Link>
+						</Menu.Item>
+					</Menu.ItemGroup>
 				</SubMenu>
-
 			</Menu>
 		);
 	}

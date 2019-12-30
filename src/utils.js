@@ -7,7 +7,7 @@ export const INITIAL_VIEW_STATE = {
 	zoom: 12,
 	minZoom: 8,
 	maxZoom: 18,
-	pitch: 60,
+	pitch: 0,
 	bearing: 0,
 	padding: [100, -100],
 	width: '100%',
